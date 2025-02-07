@@ -69,4 +69,4 @@
 
 - Regeln für uns:
     - neue Listen-Hierarchie-Ebenen immer mit 3x Leerzeichen dann -
-    
+    - Commit-Nachrichten beginnen immer großgeschrieben, danach alles klein außer Namen (Methoden-,Klassen-namen, etc.)
