@@ -1,5 +1,6 @@
 # 4Gewinnt - Bojan & Adam - Specifications
 
+
 Our Game consists of 3 Classes: 4Connect, Gameboard and Player.
 
 In "Player" we will display the Participants of the game.
@@ -9,3 +10,27 @@ In "Gameboard" we will display the Gameboard, which means we save the empty and 
 
 In "4Connect" the actual game-session will be displayed and managed.
 Methods like Check-Win or Computer_Place_Stone will help to run the game.
+
+
+- Class Gameboard
+   - Method Show_Board
+   - Method Place_Stone
+   - Attribute Board: Collection
+ 
+- Class 4Connect
+   - Method Check_Win
+   - Method Print_Winner
+   - Method Start_Game -> vl im init?
+   - Method Cancel_Game
+   - Method Computer_Place_Stone
+   - Attribute Player 1: Player
+   - Attribute Player 2: Player
+   - Attribute Computer: Player
+ 
+
+- Class Player
+   - Attribute Name: string
+   - Attribute Turn_Count: int
+   - Attribute Winner: boolean
+
+
