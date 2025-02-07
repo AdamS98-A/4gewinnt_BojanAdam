@@ -1,1 +1,2 @@
-# 4gewinnt_BojanAdam
+# 4Gewinnt - Bojan & Adam - Specifications
+

@@ -1,6 +1,4 @@
-#4Gewinnt - Bojan & Adam  
-
----
+# 4Gewinnt - Bojan & Adam  
 
 - Regelmäßige Commits – Zeitstempel
 - Verwendung von Branches, mittels pull request wieder in den MainBranch
@@ -66,3 +64,9 @@
    1.	Sie beginnen als Entwickler*in in einem neuen Unternehmen und bekommen die Verantwortung für ein Modul. Das Modul ist über eine lange Zeit hinweg gewachsen und besteht nur aus sehr wenigen Version 1.0 SEM – AI WS 2024 Christian Hofer Klassen. Die Methoden dieser Klassen sind meist sehr lange, oftmals einige hundert Zeilen oder länger, und sie sind auch eher spärlich dokumentiert. Was für Nachteile ergeben sich für Sie durch diesen Code? Welche grundlegenden Software Design Prinzipien werden evtl. nicht eingehalten?
 
    2.	Wählen Sie 2 Design Patterns Ihrer Wahl und umschreiben Sie diese in eigenen Worten. Die Beschreibung muss nicht besonders detailliert sein, sondern nur ganz allgemein Problem und Umsetzung der Lösung bzw. Idee dahinter beschreiben. Mögliche Quelle: https://refactoring.guru/design-patterns/catalog https://www.philipphauer.de/study/se/design-pattern.php Umfang ungefähr ½ - ¾ A4 Seite pro Pattern – Sie müssen das Pattern nicht genau im Detial verstehen. Direkte 1 zu 1 Übersetzungen oder Übernahmen sind nicht erwünscht – Sie können natürlich auch eigene Grafiken zur Unterstützung einbeziehen.
+
+--- 
+
+- Regeln für uns:
+    - neue Listen-Hierarchie-Ebenen immer mit 3x Leerzeichen dann -
+    
