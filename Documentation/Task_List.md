@@ -9,11 +9,11 @@
    - [ ] Attributes xyz - Adam
    - [ ] Unit-Tests - Bojan
 - [ ] Documentation
-    - [ ] Task List - Adam
-    - [ ] Specifiactions - Bojan
-    - [ ] Tehory Questions - Bojan
-       - [ ] 1.
-       - [ ] 2.
+    - [x] Task List - Adam/Bojan; 07.02.2025
+    - [x] Specifications - Bojan; 07.02.2025
+    - [x] Theory Questions - Bojan; 10.02.2025
+       - [x] 1. Question answered and commited - Bojan; 10.02.2025
+       - [x] 2. Question answered and commited - Bojan; 10.02.2025
     - [ ] Docstrings of Classes, Methods and Attributes
 - [ ] Check of all Requirements - Bojan & Adam
 - [ ] 
