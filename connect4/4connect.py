@@ -206,7 +206,8 @@ def run_CO_OP_Mode():
         gameb.Show_Board()
         if player1.current_turn >= 4 and Check_Win(gameb, column, player1) == True:
             print("------ WINNER WINNER CHICKEN DINNER           ------")
-            print(f"------ {player1.name.upper()} IS THE WINNER                  ------")
+            print(f"------ {player1.name.upper()} IS THE WINNER!                      ------")
+            print(f"------ {player2.name.upper()} IS THE DINNER...                   ------")
             break
 
         column = input(f'-- {player2.name}, please select a column: ')
@@ -216,7 +217,8 @@ def run_CO_OP_Mode():
         gameb.Show_Board()
         if player2.current_turn >= 4 and Check_Win(gameb, column, player2) == True:
             print("------ WINNER WINNER CHICKEN DINNER           ------")
-            print(f"------ {player2.name.upper()} IS THE WINNER                  ------")
+            print(f"------ {player2.name.upper()} IS THE WINNER!                     ------")
+            print(f"------ {player1.name.upper()} IS THE DINNER...                   ------")
             break
 
 
@@ -242,7 +244,8 @@ def run_PC_Mode():
 
         if player1.current_turn >= 4 and Check_Win(gameb, column, player1) == True:
             print("------ WINNER WINNER CHICKEN DINNER                   ------")
-            print(f"------ {player1.name.upper()} IS THE WINNER                  ------")
+            print(f"------ {player1.name.upper()} IS THE WINNER!                  ------")
+            print(f"------ {playerPC.name.upper()} IS THE DINNER...                   ------")
             break
 
         boolPlaceStone = True
@@ -265,7 +268,8 @@ def run_PC_Mode():
         
         if playerPC.current_turn >= 4 and Check_Win(gameb, column, playerPC) == True:
             print("------ WINNER WINNER CHICKEN DINNER                   ------")
-            print(f"------ {playerPC.name.upper()} IS THE WINNER                  ------")
+            print(f"------ {playerPC.name.upper()} IS THE WINNER!                  ------")
+            print(f"------ {player1.name.upper()} IS THE DINNER...                   ------")
             break
             
         playerPC.increase_Turn_Counter()
