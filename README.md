@@ -7,10 +7,12 @@ Welcome to **Four Connect**, a thrilling strategy game created by **Adam** and *
 - **PC Mode**: Face off against an AI opponent.
 
 ## 🛠 How to Play
-1. Choose your game mode.
-2. Take turns dropping your tokens into the columns.
-3. The first player to connect four tokens horizontally, vertically, or diagonally wins!
-4. If the board fills up with no winner, it's a draw.
+1. For starting the game, run the file "four_connect.py".
+2. Choose your game mode.
+3. Choose your names.
+4. Take turns dropping your tokens into the columns.
+5. The first player to connect four tokens horizontally, vertically, or diagonally wins!
+6. If the board fills up with no winner, it's a draw.
 
 ## 🏆 Winning Conditions
 - Connect **four tokens in a row** in any direction.
