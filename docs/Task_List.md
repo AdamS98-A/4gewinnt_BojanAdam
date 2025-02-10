@@ -7,7 +7,7 @@
    - [ ] Methods xyz - Adam
       - [ ] Methode A programmiert - Adam
    - [ ] Attributes xyz - Adam
-   - [ ] Unit-Tests - Bojan
+   - [x] Unit-Tests - Bojan; 10.02.2025
 - [ ] Documentation
     - [x] Task List - Adam/Bojan; 07.02.2025
     - [x] Specifications - Bojan; 07.02.2025
