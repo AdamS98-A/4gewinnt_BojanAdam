@@ -5,7 +5,7 @@
    - [x] Classes
       - [x] Gameboard - Adam; 07.02.2025
       - [x] Player - Adam; 07.02.2025
-   - [ ] Methods
+   - [x] Methods
       - [x] display_board - Adam; 07.02.2025
       - [x] place_piece - Adam; 07.02.2025
       - [x] Show_Board - Adam; 07.02.2025
@@ -27,3 +27,4 @@
        - [x] 2. Question answered and commited - Bojan; 10.02.2025
     - [x] Docstrings of Classes, Methods and Attributes; 10.02.2025
 - [x] Check of all Requirements - Bojan & Adam
+
