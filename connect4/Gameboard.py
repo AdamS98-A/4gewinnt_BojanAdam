@@ -11,6 +11,9 @@ class Gameboard:
     # Output with different Colors
     # print(f"{GREEN}O{RESET} {RED}o{RESET}")
 
+    #'\033[32mo\033[0m Grün
+    # \033[31mo\033[0m Rot
+
     def __init__(self, player1: Player, player2: Player):
         self.Collection = [['x','x', 'x', 'x', 'x', 'x', 'x'],
                            ['x','x', 'x', 'x', 'x', 'x', 'x'],
@@ -83,3 +86,7 @@ if __name__ == '__main__':
     print("------------------------------------------------")
     s.Show_Board()
 
+    print(s.Collection[5][0])
+
+    if "\033[32mo\033[0m" in s.Collection[5][0]:
+        print("OK")
