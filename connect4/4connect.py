@@ -334,7 +334,7 @@ def run_PC_Mode():
     none
 
     """
-    print("-- Co-OP Mode is activated                                        --")
+    print("-- PC Mode is activated                                        --")
     player_name = input("-- Please enter your Name: ")
     if player_name == "X": StopGame()
     player1 = Player.Player(player_name,0,False)
@@ -382,6 +382,9 @@ def run_PC_Mode():
             print("Es konnte leider keine freie Spalte gefunden werden!")
             StopGame()
         
+        playerPC.increase_Turn_Counter()
+        gameb.Show_Board()
+        
         if playerPC.current_turn >= 4 and Check_Win(gameb, column, playerPC) == True:
             print("------ WINNER WINNER CHICKEN DINNER                   ------")
             print(f"------ {playerPC.name.upper()} IS THE WINNER!                  ------")
@@ -390,8 +393,7 @@ def run_PC_Mode():
         if Check_Draw(gameb):
             StopGame()
             
-        playerPC.increase_Turn_Counter()
-        gameb.Show_Board()
+        
 
 
     print("")
