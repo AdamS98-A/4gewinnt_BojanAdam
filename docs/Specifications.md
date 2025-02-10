@@ -34,3 +34,9 @@ Methods like Check-Win or Computer_Place_Stone will help to run the game.
    - Attribute Winner: boolean
 
 
+- Changes we needed to make:
+   - rename 4connect.py file, file should not start with number
+   - needed way more logic for Check_Win Algo.
+   - Method Print_Winner wasnt needed
+   - 2 Methods for running the Game in seperate Game-Modes were additionaly needed
+   - Check for Draw Condition Method was also not defined beforehand
