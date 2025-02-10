@@ -1,5 +1,9 @@
 import Gameboard
 import Player
+import random
+import time
+
+
 
 def start_Game() -> str:
 
@@ -68,6 +72,46 @@ def run_PC_Mode():
     player1 = Player.Player(player_name,0,False)
     playerPC = Player.Player("PC",0,False)
     gameb = Gameboard.Gameboard(player1,playerPC)
+
+    print("-- !Let's Start!                                                  --")
+    gameb.Show_Board()
+    
+    while True:
+        column = input(f'{player1.name}, please select a column-number: ')
+        gameb.Place_Stone(int(column), player1)
+        player1.increase_Turn_Counter()
+        gameb.Show_Board()
+
+        if player1.current_turn >= 4 and Check_Win(gameb) == True:
+            print("------ WINNER WINNER CHICKEN DINNER                   ------")
+            print(f"------ {player1.name.upper()} IS THE WINNER                  ------")
+            break
+
+        boolPlaceStone = True
+        counterPlaceStone = 0
+        print(f'{playerPC.name}, please select a column-number: ')
+        time.sleep(2)
+
+        while boolPlaceStone:
+            random_column = random.randint(1, 7)
+            counterPlaceStone += 1
+            if gameb.Place_Stone(int(random_column), playerPC):
+                print(f'{playerPC.name}, please select a column-number: {random_column}')
+                boolPlaceStone = False
+            elif counterPlaceStone > 20:
+                break
+            
+        if boolPlaceStone:
+            print("Es konnte leider keine freie Spalte gefunden werden!")
+            exit()
+        
+        if playerPC.current_turn >= 4 and Check_Win(gameb) == True:
+            print("------ WINNER WINNER CHICKEN DINNER                   ------")
+            print(f"------ {playerPC.name.upper()} IS THE WINNER                  ------")
+            break
+            
+        playerPC.increase_Turn_Counter()
+        gameb.Show_Board()
 
 
     print("")
