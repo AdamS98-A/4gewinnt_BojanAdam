@@ -15,7 +15,7 @@ Welcome to **Four Connect**, a thrilling strategy game created by **Adam** and *
 6. If the board fills up with no winner, it's a draw.
 
 ## 🏆 Winning Conditions
-- Connect **four tokens in a row** in any direction.
+- Connect **four tokens in a row, a column or diagonally** in any direction.
 - Make strategic moves to block your opponent.
 
 ## 🎨 Features
