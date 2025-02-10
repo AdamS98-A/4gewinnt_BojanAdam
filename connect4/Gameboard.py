@@ -3,6 +3,27 @@
 import Player
 
 class Gameboard:
+    """ Creates a Gameboard
+
+    This Class creates a gameboard - 6x7.
+    Can be used for a 4connect game.
+
+    Parameters
+    ----------
+    Collection: collection
+        its Collection in a Collection which represents the gameboard.
+        first level equals rows
+        second level equals columns
+    
+    Methods
+    -------
+    display_board(self):
+        Prints the current state of the board.
+    
+    place_piece(self, column, player):
+        Places a player's stone ('o' in a specific color) in the given column, if possible.
+
+    """
     #ChatGPT
     # ANSI Escape-Codes for Colors
     __RED = '\033[31m'    # Rot
@@ -33,6 +54,19 @@ class Gameboard:
     # Here the Gameboard will be printed
     # it will show the current score
     def Show_Board(self):
+        """ Prints the Gameboard.
+
+        Prints the current state of the Gameboard
+
+        Parameters
+        ----------
+        none
+        
+        Returns
+        -------
+        none
+
+        """
         string_4_print = ""
         for row in self.Collection:
             for column in row:
@@ -46,6 +80,24 @@ class Gameboard:
     # it wont be successfull, if the column is already full
     # print(f"{GREEN}O{RESET} {RED}o{RESET}")
     def Place_Stone(self, column: int, player: Player) -> bool:
+        """ Places a player's stone
+
+        Places a player's stone ('o' in a specific color, depending on the player) in the given column, if possible.
+
+        Parameters
+        ----------
+        column: int
+            defines in which column the stone needs to be thrown
+        player: Player
+            defines which player (and which color) is placing the stone
+        
+        Returns
+        -------
+        Place_Stone: bool
+            returns if a stone placing was succesfull
+            if false, the column is already full
+
+        """
         column = column-1
         if self.Collection[0][column] == "o":
             return False
@@ -61,9 +113,6 @@ class Gameboard:
             
 
 
-    
-    def increase_Turn_Counter(self):
-        self.current_turn += 1
 
 
 if __name__ == '__main__':

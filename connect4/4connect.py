@@ -6,7 +6,23 @@ import time
 
 
 def start_Game() -> str:
+    """ Starts the Game
 
+    This Method starts the Game and decides on the Game-Mode played.
+    The return value will define which Game-Mode will be started.
+
+    Parameters
+    ----------
+    none
+    
+    Returns
+    ------
+    GameMode str
+        return value A equals Co-Op
+        return value B equals PC
+        return value X equals quit
+
+    """
 
     gamemode=""
 
@@ -30,19 +46,33 @@ def start_Game() -> str:
     return gamemode
 
 def Check_Win(gameb: Gameboard, column: int, playerX: Player) -> bool:
+    """ Checks for Win-Condition
+
+    This Method checks if there is a Win, by checking if the last placed stone created a Win-Condition.
+    Only the last placed stone will be checked!
+    So always call this method after a stone was placed.
+
+    Parameters
+    ----------
+    gameb: Gameboard
+        'gameb' is the current gameboard, in which the Win-Condition needs to be found
+    column: int
+        'column' is the column, where the last stone was placed
+    playerX: Player
+        is the player who placed the last stone
+    
+    Returns
+    ------
+    Check_Win bool
+        if the return value is True, there is a Win for playerX.
+
+    """
     column = (int(column)-1)
     row = findRowWithO(gameb, column)
     win = False
     counter = 0
 
-    #\033[32mo\033[0m Grün
-    # \033[31mo\033[0m Rot
-    # horizontal
-    # letzter Stein = gameb.Gameboard[row][column]
-    # h. rechts
-    # muss nicht nach links und rechts schauen! entweder 3 nach links oder 3 nach rechts, oder 2 nach links 2 nach rechts
-    
-
+    # last Stone = gameb.Gameboard[row][column]
 
     if playerX == gameb.player1:
         # horizontal
@@ -81,28 +111,28 @@ def Check_Win(gameb: Gameboard, column: int, playerX: Player) -> bool:
                 return True 
             
         # diagonal
-        # 1 ; 0 ; 0 ; 0 - 
+        # 1 ; 0 ; 0 ; 0 
         # 0 ; x ; 0 ; 0
         # 0 ; 0 ; 1 ; 0
         # 0 ; 0 ; 0 ; 1
 
-        # diagonale links unten -> rechts oben
-        if row <= 2 and column >= 3:  # Überprüfen, ob genug Platz nach unten links ist
+        # diagonal left down -> right top
+        if row <= 2 and column >= 3:  # Check, if there is enough space
             if gameb.Collection[row+1][column-1] == "\033[32mo\033[0m" and gameb.Collection[row+2][column-2] == "\033[32mo\033[0m" and gameb.Collection[row+3][column-3] == "\033[32mo\033[0m":
                 return True
 
-        # diagonale links oben -> rechts unten
-        if row >= 3 and column >= 3:  # Überprüfen, ob genug Platz nach oben links ist
+        # diagonal left top -> right bottom
+        if row >= 3 and column >= 3: 
             if gameb.Collection[row-1][column-1] == "\033[32mo\033[0m" and gameb.Collection[row-2][column-2] == "\033[32mo\033[0m" and gameb.Collection[row-3][column-3] == "\033[32mo\033[0m":
                 return True
     
-        # diagonale links unten -> rechts oben (mittlere Fälle)
-        if row <= 2 and column <= 3:  # Überprüfen, ob genug Platz nach unten links und oben rechts ist
+        # diagonal left bottom -> right top
+        if row <= 2 and column <= 3:  
             if gameb.Collection[row+1][column+1] == "\033[32mo\033[0m" and gameb.Collection[row+2][column+2] == "\033[32mo\033[0m" and gameb.Collection[row+3][column+3] == "\033[32mo\033[0m":
                 return True
         
-        # diagonale rechts unten -> links oben
-        if row >= 3 and column <= 3:  # Überprüfen, ob genug Platz nach oben rechts ist
+        # diagonal right bottom -> left top
+        if row >= 3 and column <= 3:
             if gameb.Collection[row-1][column+1] == "\033[32mo\033[0m" and gameb.Collection[row-2][column+2] == "\033[32mo\033[0m" and gameb.Collection[row-3][column+3] == "\033[32mo\033[0m":
                 return True
 
@@ -150,23 +180,23 @@ def Check_Win(gameb: Gameboard, column: int, playerX: Player) -> bool:
         # 0 ; 0 ; 1 ; 0
         # 0 ; 0 ; 0 ; 1
             
-        # diagonale links unten -> rechts oben
-        if row <= 2 and column >= 3:  # Überprüfen, ob genug Platz nach unten links ist
+        # diagonal left bottom -> right top
+        if row <= 2 and column >= 3: 
             if gameb.Collection[row+1][column-1] == "\033[31mo\033[0m" and gameb.Collection[row+2][column-2] == "\033[31mo\033[0m" and gameb.Collection[row+3][column-3] == "\033[31mo\033[0m":
                 return True
 
-        # diagonale links oben -> rechts unten
-        if row >= 3 and column >= 3:  # Überprüfen, ob genug Platz nach oben links ist
+        # diagonal left top -> right bottom
+        if row >= 3 and column >= 3: 
             if gameb.Collection[row-1][column-1] == "\033[31mo\033[0m" and gameb.Collection[row-2][column-2] == "\033[31mo\033[0m" and gameb.Collection[row-3][column-3] == "\033[31mo\033[0m":
                 return True
         
-        # diagonale links unten -> rechts oben (mittlere Fälle)
-        if row <= 2 and column <= 3:  # Überprüfen, ob genug Platz nach unten links und oben rechts ist
+        # diagonal left bottom -> right top 
+        if row <= 2 and column <= 3: 
             if gameb.Collection[row+1][column+1] == "\033[31mo\033[0m" and gameb.Collection[row+2][column+2] == "\033[31mo\033[0m" and gameb.Collection[row+3][column+3] == "\033[31mo\033[0m":
                 return True
         
-        # diagonale rechts unten -> links oben
-        if row >= 3 and column <= 3:  # Überprüfen, ob genug Platz nach oben rechts ist
+        # diagonal right bottom -> left top
+        if row >= 3 and column <= 3:
             if gameb.Collection[row-1][column+1] == "\033[31mo\033[0m" and gameb.Collection[row-2][column+2] == "\033[31mo\033[0m" and gameb.Collection[row-3][column+3] == "\033[31mo\033[0m":
                 return True
 
@@ -174,9 +204,49 @@ def Check_Win(gameb: Gameboard, column: int, playerX: Player) -> bool:
     return False
 
 def Check_Draw(gameb: Gameboard) -> bool:
-    return False
+    """ Checks for Draw-Condition
+
+    This Method checks if there is a draw, by checking if there is any Places left without a stone
+
+    Parameters
+    ----------
+    gameb: Gameboard
+        'gameb' is the current gameboard, in which the right row index needs to be found
+    
+
+    Returns
+    ------
+    Check_Draw bool
+        if the return value is False, there is no draw.
+
+    """
+    xFound = False
+    for row in gameb.Collection:
+        for column in row:
+            if column == "x":
+                xFound = True
+
+    return not(xFound)
 
 def findRowWithO(gameb: Gameboard, column: int) -> int:
+    """ Finds the highes row in a specific column, where a Stone is placed
+
+    This Method returns the value of highest row-index in a column, where a Stone is already placed.
+
+    Parameters
+    ----------
+    gameb: Gameboard
+        'gameb' is the current gameboard, in which the right row index needs to be found
+    
+    column: int
+        'column' is the column index, where the highest row index needs to be found
+
+    Returns
+    ------
+    row-index
+        the index of the searched row
+
+    """
     for i in range(0, 6): #5, -1, -1
         if gameb.Collection[i][column] != "x":
             return i
@@ -186,6 +256,20 @@ def findRowWithO(gameb: Gameboard, column: int) -> int:
 
 
 def run_CO_OP_Mode():
+    """ Starts and Runs the Co-Op-Mode of the game
+
+    2 Players play against each other.
+    "Multi-Player"-Mode
+
+    Parameters
+    ----------
+    none
+
+    Returns
+    ------
+    none
+
+    """
     print("-- Co-OP Mode is activated                                        --")
     player1_name = input("-- Please enter the Name of Player 1: ")
     if player1_name == "X": StopGame() 
@@ -201,30 +285,55 @@ def run_CO_OP_Mode():
     while True:
         column = input(f'-- {player1.name}, please select a column-number: ')
         if column == "X": StopGame() 
-        gameb.Place_Stone(int(column), player1)
-        player1.increase_Turn_Counter()
-        gameb.Show_Board()
-        if player1.current_turn >= 4 and Check_Win(gameb, column, player1) == True:
-            print("------ WINNER WINNER CHICKEN DINNER           ------")
-            print(f"------ {player1.name.upper()} IS THE WINNER!                      ------")
-            print(f"------ {player2.name.upper()} IS THE DINNER...                   ------")
-            break
+        try:
+            if int(column) >= 1 and int(column) <= 7:
+                gameb.Place_Stone(int(column), player1)
+                player1.increase_Turn_Counter()
+                gameb.Show_Board()
+                if player1.current_turn >= 4 and Check_Win(gameb, column, player1) == True:
+                    print("------ WINNER WINNER CHICKEN DINNER           ------")
+                    print(f"------ {player1.name.upper()} IS THE WINNER!                      ------")
+                    print(f"------ {player2.name.upper()} IS THE DINNER...                   ------")
+                    break
+                if Check_Draw(gameb):
+                    StopGame()
+        except ValueError:
+            print("------ Input not OK ------")
 
         column = input(f'-- {player2.name}, please select a column: ')
         if column == "X": StopGame() 
-        gameb.Place_Stone(int(column), player2)
-        player2.increase_Turn_Counter()
-        gameb.Show_Board()
-        if player2.current_turn >= 4 and Check_Win(gameb, column, player2) == True:
-            print("------ WINNER WINNER CHICKEN DINNER           ------")
-            print(f"------ {player2.name.upper()} IS THE WINNER!                     ------")
-            print(f"------ {player1.name.upper()} IS THE DINNER...                   ------")
-            break
+        try:
+            if int(column) >= 1 and int(column) <= 7:
+                gameb.Place_Stone(int(column), player2)
+                player2.increase_Turn_Counter()
+                gameb.Show_Board()
+                if player2.current_turn >= 4 and Check_Win(gameb, column, player2) == True:
+                    print("------ WINNER WINNER CHICKEN DINNER           ------")
+                    print(f"------ {player2.name.upper()} IS THE WINNER!                     ------")
+                    print(f"------ {player1.name.upper()} IS THE DINNER...                   ------")
+                    break
+                if Check_Draw(gameb):
+                    StopGame()
 
+        except ValueError:
+            print("------ Input not OK ------")
 
-    print("")
 
 def run_PC_Mode():
+    """ Starts and Runs the PC-Mode of the game
+
+    1 Player plays against the PC.
+    "Single-Player"-Mode
+
+    Parameters
+    ----------
+    none
+
+    Returns
+    ------
+    none
+
+    """
     print("-- Co-OP Mode is activated                                        --")
     player_name = input("-- Please enter your Name: ")
     if player_name == "X": StopGame()
@@ -238,15 +347,22 @@ def run_PC_Mode():
     while True:
         column = input(f'{player1.name}, please select a column-number: ')
         if column == "X": StopGame() 
-        gameb.Place_Stone(int(column), player1)
-        player1.increase_Turn_Counter()
-        gameb.Show_Board()
+        try:
+            if int(column) >= 1 and int(column) <= 7:
+                gameb.Place_Stone(int(column), player1)
+                player1.increase_Turn_Counter()
+                gameb.Show_Board()
 
-        if player1.current_turn >= 4 and Check_Win(gameb, column, player1) == True:
-            print("------ WINNER WINNER CHICKEN DINNER                   ------")
-            print(f"------ {player1.name.upper()} IS THE WINNER!                  ------")
-            print(f"------ {playerPC.name.upper()} IS THE DINNER...                   ------")
-            break
+                if player1.current_turn >= 4 and Check_Win(gameb, column, player1) == True:
+                    print("------ WINNER WINNER CHICKEN DINNER                   ------")
+                    print(f"------ {player1.name.upper()} IS THE WINNER!                  ------")
+                    print(f"------ {playerPC.name.upper()} IS THE DINNER...                   ------")
+                    break
+                if Check_Draw(gameb):
+                    StopGame()
+            
+        except ValueError:
+            print("------ Input not OK ------")
 
         boolPlaceStone = True
         counterPlaceStone = 0
@@ -264,13 +380,15 @@ def run_PC_Mode():
             
         if boolPlaceStone:
             print("Es konnte leider keine freie Spalte gefunden werden!")
-            exit()
+            StopGame()
         
         if playerPC.current_turn >= 4 and Check_Win(gameb, column, playerPC) == True:
             print("------ WINNER WINNER CHICKEN DINNER                   ------")
             print(f"------ {playerPC.name.upper()} IS THE WINNER!                  ------")
             print(f"------ {player1.name.upper()} IS THE DINNER...                   ------")
             break
+        if Check_Draw(gameb):
+            StopGame()
             
         playerPC.increase_Turn_Counter()
         gameb.Show_Board()
@@ -280,6 +398,19 @@ def run_PC_Mode():
 
 
 def StopGame():
+    """ Stops and Exits the Game
+
+    This Method is for stopping and exiting the Game.
+
+    Parameters
+    ----------
+    none
+
+    Returns
+    ------
+    none
+
+    """
     print("-- Game Over! Thank You!                                          --")
     exit()
     
